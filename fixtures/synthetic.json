@@ -1,0 +1,1335 @@
+[
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "company",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/ClientMaster",
+    "provider": "prismhr",
+    "record": {
+      "abbrvName": "synthetic282",
+      "achHoldThreshold": "synthetic140",
+      "addressLine1": "synthetic550",
+      "addressLine2": "synthetic501",
+      "adjAchDays": "synthetic465",
+      "aftPostPreMailThreshold": "synthetic328",
+      "annualHours": "synthetic267",
+      "arClientNumber": "synthetic993",
+      "benefitRep": "synthetic242",
+      "billAddressLine1": "synthetic791",
+      "billAddressLine2": "synthetic152",
+      "billBySort": "synthetic148",
+      "billCity": "synthetic253",
+      "billFormat": "synthetic458",
+      "billInvBreakField": "synthetic481",
+      "billStateCode": "synthetic927",
+      "billTemplate": "synthetic143",
+      "billZipCode": "synthetic425",
+      "billZipSuffix": "synthetic992",
+      "broker": "synthetic787",
+      "businessDescription": "synthetic461",
+      "cafeteriaPlan": "synthetic835",
+      "categoryCode": "synthetic555",
+      "checkIssueAcct": "synthetic110",
+      "checkPrintStyle": "synthetic361",
+      "checksum": "synthetic792",
+      "city": "synthetic657",
+      "clientAccountingCode": "synthetic555",
+      "clientAgrmtRecvDate": "2026-01-15",
+      "clientName": "Synthetic Northwind",
+      "clientStatusChecksum": "synthetic452",
+      "consultant": "synthetic651",
+      "contractDate": "2026-01-15",
+      "contractorsAllowed1099": false,
+      "controlGroupCompany": "synthetic267",
+      "corporationType": "synthetic251",
+      "costCenter": "synthetic722",
+      "cutbackCheckAcct": "synthetic258",
+      "deduct401kOnSupp": "synthetic688",
+      "definitionId": "synthetic663",
+      "deliverChecks": "synthetic533",
+      "deliveryMethod": "synthetic171",
+      "depositAmt": "synthetic852",
+      "depositDate": "2026-01-15",
+      "depositType": "synthetic978",
+      "directDepositAccount": "synthetic304",
+      "emailAddress": "synthetic720",
+      "employerId": "synthetic229",
+      "extraHeading1": "synthetic580",
+      "extraHeading2": "synthetic692",
+      "fax": "synthetic415",
+      "federalIdNumber": "synthetic213",
+      "flatType1": "synthetic175",
+      "flatType2": "synthetic473",
+      "flsaRuleset": "synthetic574",
+      "garnCheckIssueAcct": "synthetic230",
+      "garnEftIssueAcct": "synthetic481",
+      "glClientNo": "synthetic265",
+      "glTemplateCode": "synthetic722",
+      "groupCode": "synthetic555",
+      "handbookId": "synthetic842",
+      "hoursType1": "synthetic697",
+      "hoursType2": "synthetic366",
+      "hoursType3": "synthetic706",
+      "hoursType4": "synthetic682",
+      "hoursType5": "synthetic443",
+      "hoursType6": "synthetic537",
+      "hoursType9": "synthetic216",
+      "hsaPlanId": "synthetic380",
+      "id": "1",
+      "invoiceCopies": "synthetic501",
+      "legalName": "Synthetic Northwind LLC",
+      "mainPhone": "synthetic857",
+      "mainPhoneExt": "synthetic721",
+      "manualAccount": "synthetic542",
+      "maxCheckAmt": "synthetic459",
+      "minCheckAmt": "synthetic631",
+      "mySupportTeamDashboard": [],
+      "naicsCode": "synthetic191",
+      "nesOffset": "synthetic475",
+      "newHireAlert": "synthetic152",
+      "nyMctOvrRate": "synthetic616",
+      "nySdiEmployerRate": "synthetic757",
+      "onDemandChecksAccount": "synthetic538",
+      "onboardStatus": "synthetic208",
+      "payCardAccount": "synthetic445",
+      "payrollDate": "2026-01-15",
+      "payrollRep": "synthetic615",
+      "rateOrMarkup": "synthetic448",
+      "receiptCheckAcct": "synthetic917",
+      "remitCopies": "synthetic748",
+      "riskManager": "synthetic851",
+      "salesperson": "synthetic334",
+      "satPayBefAft": "synthetic533",
+      "satPayOnDay": "synthetic328",
+      "serviceTermReason": "synthetic504",
+      "serviceType": "synthetic983",
+      "sicCode": "synthetic530",
+      "sortField1": "synthetic801",
+      "sortField2": "synthetic754",
+      "sortField3": "synthetic693",
+      "stateCode": "synthetic459",
+      "status": "synthetic326",
+      "statusClass": "A",
+      "statusDate": "2026-01-15",
+      "subCostCenter": "synthetic934",
+      "sunPayBefAft": "synthetic908",
+      "sunPayOnDay": "synthetic248",
+      "taxCalcOptions": "synthetic177",
+      "taxLimitBasis": "synthetic279",
+      "wcPolicy": "synthetic350",
+      "wcPolicyEffDate": "2026-01-15",
+      "wcPolicySubId": "synthetic362",
+      "zipCode": "28202",
+      "zipSuffix": "synthetic791"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "101",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "employee",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/Employee",
+    "provider": "prismhr",
+    "record": {
+      "absenceJournalId": [],
+      "benefitEnrollmentCompleted": false,
+      "client": {
+        "addressLine1": "synthetic839",
+        "addressLine2": "synthetic298",
+        "applicantId": "synthetic874",
+        "backgroundTest": false,
+        "backgroundTestDate": "2026-01-15",
+        "benefitEmail": "synthetic753",
+        "benefitGroup": "synthetic489",
+        "businessOwner": false,
+        "cafeteriaPlan": [],
+        "childSpouseArrears": false,
+        "childSpouseSupport": false,
+        "city": "synthetic506",
+        "clientChecksum": "synthetic196",
+        "clientEmployeeId": "synthetic983",
+        "clockNum": "synthetic429",
+        "courtOrderMedical": false,
+        "electronic1095C": "synthetic451",
+        "electronicOnboard": false,
+        "electronicOnboardDate": "2026-01-15",
+        "employee1099": false,
+        "employeeStatus": "synthetic310",
+        "employeeType": "synthetic370",
+        "firstHireDate": "2024-01-15",
+        "flsaExempt": false,
+        "genderDesignation": "synthetic111",
+        "handbookMailDate": "2026-01-15",
+        "handbookRecvDate": "2026-01-15",
+        "hawaiiMedWaivers": [],
+        "homeDepartment": "synthetic151",
+        "homeDivision": "synthetic210",
+        "homeLocation": "synthetic475",
+        "jobCode": "synthetic964",
+        "jobStartDate": "2026-01-15",
+        "lastHireDate": "2024-01-15",
+        "lastJobChangeDate": "2026-01-15",
+        "lastStatusChangeDate": "2026-01-15",
+        "manager": "102",
+        "newHireReportDate": "2026-01-15",
+        "officer": false,
+        "onboardInProgress": false,
+        "preferredPronoun": "synthetic216",
+        "primaryEmailSource": "synthetic610",
+        "probationDate": "2026-01-15",
+        "projCostCenter": "synthetic216",
+        "property": [],
+        "rehireOk": "synthetic711",
+        "reportsTo": "synthetic460",
+        "retirementBenefitGroup": "synthetic556",
+        "returnDate": "2026-01-15",
+        "scorpOwner": false,
+        "selfIdDisabilityForm": "synthetic316",
+        "seniorityDate": "2026-01-15",
+        "state": "synthetic468",
+        "statusClass": "A",
+        "statusDate": "2026-01-15",
+        "subCostCenter": "synthetic477",
+        "termExplanation": "synthetic447",
+        "termReasonCode": "synthetic793",
+        "transferInfo": [],
+        "typeClass": "synthetic534",
+        "typeDate": "2026-01-15",
+        "unionCode": "synthetic134",
+        "unionDate": "2026-01-15",
+        "workCompOfficer": false,
+        "workEmail": "synthetic895",
+        "workGroupCode": "synthetic942",
+        "workPhone": "synthetic817",
+        "workPhoneExt": "synthetic947",
+        "workShift": "synthetic641",
+        "workersCompExempt": false,
+        "zip": "synthetic204",
+        "zipSuffix": "synthetic653"
+      },
+      "compensation": {
+        "alienRegExpDate": "2026-01-15",
+        "allocationTemplateId": "synthetic258",
+        "altPayRate": [],
+        "alternateId": "synthetic739",
+        "annualPay": "52260",
+        "autoAcceptTimeSheet": false,
+        "autoPayCode": "synthetic857",
+        "benefitSalary": "synthetic757",
+        "benefitsBasePay": "synthetic400",
+        "benefitsPerHour": "synthetic252",
+        "citizenshipStatus": "synthetic196",
+        "compReviewNextDate": "2026-01-15",
+        "compaRatio": "synthetic791",
+        "compensationChecksum": "synthetic720",
+        "defaultHours": "synthetic411",
+        "deliverCheckHome": false,
+        "eeImage": [],
+        "effectiveDate": "2026-01-15",
+        "eicFileStatus": "synthetic865",
+        "electronicPayStub": false,
+        "familyMemberMI": "synthetic888",
+        "fedDeductions": 1,
+        "fedDependents": 1,
+        "fedFilingStatus": "synthetic188",
+        "fedMultipleJobs": false,
+        "fedOtherIncome": 1,
+        "fedOverrideAmt": "synthetic759",
+        "fedOverrideType": "synthetic199",
+        "fedTaxCalc": "synthetic655",
+        "fedW4Filed": false,
+        "fedW4Year": "synthetic985",
+        "fedW5Filed": false,
+        "fedW5Year": "synthetic182",
+        "fedWithholdAllowance": "synthetic261",
+        "ficaExempt": false,
+        "firstPayPeriodHours": "synthetic369",
+        "formI9Filed": false,
+        "formI9RenewDate": "2026-01-15",
+        "healthInsVT": false,
+        "hourlyPay": "25.125",
+        "hourlyPayPeriod": "synthetic507",
+        "hourlyPayRate": "synthetic279",
+        "i9imageAudit": [],
+        "irsLockInDate": "2026-01-15",
+        "lastChangeAmt": "synthetic835",
+        "lastChangePct": "synthetic978",
+        "lastPayDate": "2026-01-15",
+        "lastWorkedDate": "2026-01-15",
+        "localTax": [],
+        "lockIns": [],
+        "longBasisDate": "2026-01-15",
+        "longPayTable": "synthetic413",
+        "nonResAlien": false,
+        "notes": "synthetic124",
+        "overrideWorkGeocode": "synthetic895",
+        "paidThruDate": "2026-01-15",
+        "payAllocation": [],
+        "payChangeLastDate": "2026-01-15",
+        "payGroup": "synthetic874",
+        "payMethod": "H",
+        "payPeriod": "synthetic766",
+        "payPeriodInfo": [],
+        "payRate2": "synthetic487",
+        "payRate3": "synthetic372",
+        "payRate4": "synthetic765",
+        "pensionStatus": "synthetic509",
+        "perDiemPay": "synthetic556",
+        "perfAgreement": false,
+        "perfReviewLastDate": "2026-01-15",
+        "perfReviewLastRating": "synthetic826",
+        "perfReviewLastTitle": "synthetic260",
+        "perfReviewNextDate": "2026-01-15",
+        "probationCodeMO": "synthetic450",
+        "profitSharing": "synthetic223",
+        "providerNotifiedOn": "synthetic103",
+        "quartile": "synthetic329",
+        "salary": "0",
+        "ssn": "synthetic498",
+        "standardHours": "80",
+        "stateTax": [],
+        "taxCreditEmp": false,
+        "w8Filed": false,
+        "wagePlanCA": false,
+        "workShift": "synthetic773"
+      },
+      "contactInformation": {
+        "addressLine1": "synthetic603",
+        "addressLine2": "synthetic492",
+        "city": "synthetic194",
+        "county": "synthetic240",
+        "emailAddress": "avery@example.invalid",
+        "homePhone": "synthetic213",
+        "mobilePhone": "synthetic972",
+        "schoolDistrict": "synthetic896",
+        "state": "synthetic494",
+        "zipSuffix": "synthetic229",
+        "zipcode": "28202"
+      },
+      "directDeposit": {
+        "achStatus": "synthetic534",
+        "achVoucher": [],
+        "directDepositChecksum": "synthetic567",
+        "suppressAccountPrint": false,
+        "voucherType": "synthetic845"
+      },
+      "employeeEvents": {
+        "employeeEvent": []
+      },
+      "enrollmentInProgress": {
+        "enrollmentInProgress": false,
+        "enrollmentType": "synthetic613"
+      },
+      "firstName": "Avery",
+      "health": {
+        "allergy": [],
+        "audioTestDateLast": "2026-01-15",
+        "audioTestDateNext": "2026-01-15",
+        "audioTestResult": "synthetic195",
+        "bloodDonor": false,
+        "bloodRh": "synthetic586",
+        "bloodType": "synthetic411",
+        "condition": [],
+        "donateDateLast": "2026-01-15",
+        "donateDateNext": "2026-01-15",
+        "drugTestDateLast": "2026-01-15",
+        "drugTestDateNext": "2026-01-15",
+        "drugTestResult": "synthetic456",
+        "height": "synthetic897",
+        "physExamDateLast": "2026-01-15",
+        "physExamDateNext": "2026-01-15",
+        "physExamResult": "synthetic988",
+        "program": [],
+        "weight": "synthetic353"
+      },
+      "hsa": {
+        "achChecksum": "synthetic793",
+        "hsaDepositSettings": []
+      },
+      "id": "101",
+      "lastName": "Example",
+      "middleInitial": "Q",
+      "newHireQuestions": [],
+      "person": {
+        "activeDutyBadgeVet": "synthetic100",
+        "agricultureWorker": false,
+        "autoPolicies": [],
+        "birthDate": "2026-01-15",
+        "blind": "synthetic580",
+        "cobraOnly": false,
+        "cobraSSN": "synthetic287",
+        "deceased": false,
+        "deceasedDate": "2026-01-15",
+        "disabledVet": "synthetic843",
+        "driverLicenseClass": "synthetic588",
+        "driverLicenseExpireDate": "2026-01-15",
+        "driverLicenseId": "synthetic118",
+        "driverState": "synthetic274",
+        "emergencyContact": [],
+        "employerIds": [],
+        "ethnicCode": "synthetic511",
+        "gender": "synthetic531",
+        "geoCode": "synthetic979",
+        "handicapped": "synthetic282",
+        "highlyCompensated": false,
+        "hispanic": false,
+        "hrpCitizenshipCountry": "synthetic105",
+        "keyEmployee": false,
+        "legacyEmployeeId": "synthetic983",
+        "maritalStatus": "synthetic537",
+        "marriedDate": "2026-01-15",
+        "nickname": "synthetic931",
+        "ohioFormC112": false,
+        "otherProtectedVet": "synthetic968",
+        "overrideGeoCode": "synthetic392",
+        "overrideGeoEndDate": "2026-01-15",
+        "peoStartDate": "2026-01-15",
+        "personChecksum": "synthetic694",
+        "preferredLanguage": "synthetic131",
+        "recentlySeparatedVet": "synthetic631",
+        "serviceMedalVet": "synthetic900",
+        "smoker": "synthetic657",
+        "taxZipCode": "synthetic920",
+        "unincorporatedResidence": false,
+        "userId": "synthetic283",
+        "vehicleDetails": [],
+        "veteran": "synthetic812",
+        "vietnamVet": "synthetic359",
+        "w2AddressLine1": "synthetic931",
+        "w2AddressLine2": "synthetic425",
+        "w2City": "synthetic350",
+        "w2ElecForm": false,
+        "w2ElecFormDate": "2026-01-15",
+        "w2PostalCode": "synthetic364",
+        "w2State": "synthetic712"
+      },
+      "preferredName": "Avery",
+      "scheduledDeduction": [],
+      "skillsAndEducation": {
+        "osha10Certified": false,
+        "school": [],
+        "skill": [],
+        "skillChecksum": "synthetic199"
+      }
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "deposit-slot-1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "direct_deposit",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/AchVoucher",
+    "provider": "prismhr",
+    "record": {
+      "accountNum": "000000000001",
+      "accountType": "C",
+      "amount": 25,
+      "bankName": "synthetic881",
+      "limit": 1,
+      "method": "P",
+      "status": "D",
+      "transitNum": "000000000",
+      "voucherTypeOverride": "synthetic193"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "SYN401",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "deduction",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/EmployeeDeductions-Deduction",
+    "provider": "prismhr",
+    "record": {
+      "amount": 5,
+      "deductionCode": "SYN401",
+      "deductionType": "K",
+      "period": "1",
+      "startDate": "2026-01-01",
+      "usePercent": true
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "501",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "payroll_run",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/PayrollHistory",
+    "provider": "prismhr",
+    "record": {
+      "batchId": "501",
+      "grossEarnings": "2000.00",
+      "payDate": "2026-01-30",
+      "type": "R"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "paycheck",
+    "evidence": "contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/schemas/PayrollVoucher",
+    "provider": "prismhr",
+    "record": {
+      "asoClientGLAcctDistribution": {},
+      "batchId": "501",
+      "checkNumber": "synthetic212",
+      "deduction": [
+        {
+          "deductAmount": 100,
+          "deductCode": "SYN401",
+          "deductDescription": "Synthetic retirement",
+          "deductType": "K",
+          "deductUnionId": "",
+          "planId": "SYN401"
+        }
+      ],
+      "earnAmount": 1,
+      "earning": [
+        {
+          "chargeDate": "2026-01-15",
+          "hoursUnits": 80,
+          "hoursWorked": 80,
+          "payAmount": 25,
+          "payCode": "REG"
+        }
+      ],
+      "employeeId": "101",
+      "employeeTax": [
+        {
+          "empOverLimitAmount": 0,
+          "empTaxAmount": 400,
+          "empTaxDeductCode": "FIT",
+          "empTaxableAmount": 2000
+        }
+      ],
+      "employerContributions": [
+        {
+          "amount": 50,
+          "code": "SYN401",
+          "description": "Employer match"
+        }
+      ],
+      "fitTaxableAmount": 1,
+      "netPay": 1500,
+      "otherEarnAmount": 1,
+      "payDate": "2026-01-30",
+      "payPeriod": "synthetic485",
+      "payPeriodEnd": "2026-01-15",
+      "payPeriodStart": "2026-01-01",
+      "totalEarnings": 2000,
+      "voidVoucherId": "synthetic503",
+      "voucherId": "601",
+      "wcHomeClass": "synthetic234",
+      "wcState": "synthetic786"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "company",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.LegalModel",
+    "provider": "isolved",
+    "record": {
+      "dbaName": "Synthetic Northwind",
+      "id": 1,
+      "legalName": "Synthetic Northwind LLC"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "101",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "employee",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.EmployeeModel",
+    "provider": "isolved",
+    "record": {
+      "acaEmploymentStatus": "synthetic956",
+      "activeDutySeparationDate": "2026-01-15T00:00:00Z",
+      "adjustedServiceDate": "2026-01-15T00:00:00Z",
+      "annualSalary": 52260,
+      "assignedManager": {
+        "employeeName": "synthetic618",
+        "employeeNumber": "synthetic527",
+        "id": 1,
+        "jobTitle": "synthetic434",
+        "legalId": 1,
+        "links": [],
+        "payrollEmploymentStatusCode": "synthetic614"
+      },
+      "assignedSupervisor": {
+        "employeeName": "synthetic491",
+        "employeeNumber": "synthetic535",
+        "id": 1,
+        "jobTitle": "synthetic748",
+        "legalId": 1,
+        "links": [],
+        "payrollEmploymentStatusCode": "synthetic314"
+      },
+      "attachments": [],
+      "birthDate": "2026-01-15T00:00:00Z",
+      "citizenship": "synthetic591",
+      "directDeposits": [],
+      "disabilityDescription": "synthetic849",
+      "disabilityNotes": "synthetic618",
+      "disabled": false,
+      "disabledEffectiveDate": "2026-01-15T00:00:00Z",
+      "disabledRequiresAccomodation": false,
+      "eeoGenderOverride": "synthetic218",
+      "eligibleForRehire": false,
+      "emailAddress": "synthetic115",
+      "employeeNumber": "synthetic850",
+      "employmentCategoryCode": "synthetic263",
+      "employmentCategoryEffectiveDate": "2026-01-15T00:00:00Z",
+      "employmentCategoryFullTimeEquivalent": 1,
+      "employmentStatus": "Active",
+      "enableSelfService": false,
+      "ethnicOrigin": "synthetic980",
+      "gender": "synthetic449",
+      "hireDate": "2024-01-15T00:00:00Z",
+      "hourlyRate": 25.125,
+      "i9Documents": {
+        "documentA": {
+          "allowEmployeeAccess": false,
+          "allowManagerAccess": false,
+          "allowSupervisorAccess": false,
+          "documentCode": "synth",
+          "documentContent": "synthetic534",
+          "documentDescription": "synthetic317",
+          "documentFileName": "synthetic671",
+          "documentNumber": "synthetic212",
+          "expirationDate": "2026-01-15T00:00:00Z",
+          "issuingAuthority": "synthetic500",
+          "links": []
+        },
+        "documentB": {
+          "allowEmployeeAccess": false,
+          "allowManagerAccess": false,
+          "allowSupervisorAccess": false,
+          "documentCode": "synth",
+          "documentContent": "synthetic566",
+          "documentDescription": "synthetic358",
+          "documentFileName": "synthetic817",
+          "documentNumber": "synthetic990",
+          "expirationDate": "2026-01-15T00:00:00Z",
+          "issuingAuthority": "synthetic595",
+          "links": []
+        },
+        "documentC": {
+          "allowEmployeeAccess": false,
+          "allowManagerAccess": false,
+          "allowSupervisorAccess": false,
+          "documentCode": "synth",
+          "documentContent": "synthetic112",
+          "documentDescription": "synthetic590",
+          "documentFileName": "synthetic269",
+          "documentNumber": "synthetic320",
+          "expirationDate": "2026-01-15T00:00:00Z",
+          "issuingAuthority": "synthetic533",
+          "links": []
+        },
+        "i9Completed": false,
+        "i9CompletedDate": "2026-01-15T00:00:00Z"
+      },
+      "id": 101,
+      "idType": "synthetic289",
+      "isManager": false,
+      "isPending": false,
+      "isRecentlySeparatedVeteran": false,
+      "isRemoteWorker": false,
+      "isSupervisor": false,
+      "jobCode": "synthetic2",
+      "jobEeoCategory": "synthetic354",
+      "jobEffectiveDate": "2026-01-15T00:00:00Z",
+      "jobFLSAExempt": false,
+      "jobGroup": "synthetic546",
+      "jobId": 1,
+      "jobIsSeasonal": false,
+      "jobIsUnion": false,
+      "jobTitle": "synthetic561",
+      "labors": [],
+      "legalCode": "synthetic445",
+      "links": [],
+      "maritalStatus": "s",
+      "messages": [],
+      "militaryStatus": "synthetic433",
+      "miscDataSets": [],
+      "miscFields": [],
+      "nameAddress": {
+        "address1": "synthetic532",
+        "address2": "synthetic928",
+        "city": "synthetic900",
+        "firstName": "Avery",
+        "id": 1,
+        "lastName": "Example",
+        "links": [],
+        "middleName": "synthetic251",
+        "overrideAddress": {
+          "address1": "synthetic793",
+          "address2": "synthetic553",
+          "city": "synthetic172",
+          "country": "USA",
+          "deleteAddress": false,
+          "foreignPostalCode": "synthetic105",
+          "foreignStateProvince": "synthetic646",
+          "militaryCity": "synthetic314",
+          "militaryState": "synthetic529",
+          "state": "sy",
+          "useForPaychecks": false,
+          "useForTaxForms": false,
+          "zipCode": "28202"
+        },
+        "preferredName": "synthetic823",
+        "preferredPronouns": "synthetic800",
+        "prefix": "synthetic1",
+        "residentGeoCode": "synthetic",
+        "schoolDistrictCode": 1,
+        "state": "NC",
+        "suffix": "synthetic3",
+        "zipCode": "28202"
+      },
+      "normalHours": 80,
+      "organizations": [],
+      "originalHireDate": "2026-01-15T00:00:00Z",
+      "overrideAddress": {
+        "address1": "synthetic993",
+        "address2": "synthetic159",
+        "city": "synthetic704",
+        "country": "USA",
+        "deleteAddress": false,
+        "foreignPostalCode": "synthetic342",
+        "foreignStateProvince": "synthetic804",
+        "militaryCity": "synthetic308",
+        "militaryState": "synthetic168",
+        "state": "sy",
+        "useForPaychecks": false,
+        "useForTaxForms": false,
+        "zipCode": "28202"
+      },
+      "payFrequency": 1,
+      "payGroup": "synthetic697",
+      "payRates": [],
+      "payType": "synthetic165",
+      "perPaySalary": 1,
+      "personal": {
+        "faxNumber": "synthetic686",
+        "homePhone": "synthetic444",
+        "id": 1,
+        "links": [],
+        "mobilePhone": "synthetic508",
+        "officePhone": "synthetic268",
+        "personalEmailAddress": "synthetic679",
+        "preferredPronouns": "synthetic765"
+      },
+      "previousPunchLabors": [],
+      "profilePicture": "",
+      "protectedVeteran": false,
+      "reciprocityRule": "synthetic353",
+      "rehireDate": "2026-01-15T00:00:00Z",
+      "salaryEffectiveDate": "2026-01-15T00:00:00Z",
+      "socCode": "synthetic4",
+      "ssn": "synthetic36",
+      "statusDate": "2026-01-15T00:00:00Z",
+      "taxExemptStatus": "synthetic213",
+      "taxes": {
+        "federal": {
+          "additionalAmount": 1,
+          "additionalIncomeAmount": 1,
+          "additionalPercent": 1,
+          "alternateCalculation": "synthetic390",
+          "deductionExemptionAmount": 1,
+          "dependantExemptionAmount": 1,
+          "exemptionAmount": 1,
+          "filingStatus": "synthetic775",
+          "id": 1,
+          "isBlocked": false,
+          "links": [],
+          "multipleJobsOrSpouseWorks": false,
+          "primaryExemptions": 1,
+          "secondaryExemptions": 1,
+          "taxCategoryId": "synthetic140",
+          "taxDescription": "synthetic393",
+          "taxState": "synthetic644"
+        },
+        "nonResidentCity": {
+          "additionalAmount": 1,
+          "additionalIncomeAmount": 1,
+          "additionalPercent": 1,
+          "alternateCalculation": "synthetic774",
+          "deductionExemptionAmount": 1,
+          "dependantExemptionAmount": 1,
+          "exemptionAmount": 1,
+          "filingStatus": "synthetic506",
+          "id": 1,
+          "isBlocked": false,
+          "links": [],
+          "multipleJobsOrSpouseWorks": false,
+          "primaryExemptions": 1,
+          "secondaryExemptions": 1,
+          "taxCategoryId": "synthetic537",
+          "taxDescription": "synthetic360",
+          "taxState": "synthetic277"
+        },
+        "nonResidentState": {
+          "additionalAmount": 1,
+          "additionalIncomeAmount": 1,
+          "additionalPercent": 1,
+          "alternateCalculation": "synthetic726",
+          "deductionExemptionAmount": 1,
+          "dependantExemptionAmount": 1,
+          "exemptionAmount": 1,
+          "filingStatus": "synthetic163",
+          "id": 1,
+          "isBlocked": false,
+          "links": [],
+          "multipleJobsOrSpouseWorks": false,
+          "primaryExemptions": 1,
+          "secondaryExemptions": 1,
+          "taxCategoryId": "synthetic871",
+          "taxDescription": "synthetic464",
+          "taxState": "synthetic426"
+        },
+        "residentCity": {
+          "additionalAmount": 1,
+          "additionalIncomeAmount": 1,
+          "additionalPercent": 1,
+          "alternateCalculation": "synthetic854",
+          "deductionExemptionAmount": 1,
+          "dependantExemptionAmount": 1,
+          "exemptionAmount": 1,
+          "filingStatus": "synthetic672",
+          "id": 1,
+          "isBlocked": false,
+          "links": [],
+          "multipleJobsOrSpouseWorks": false,
+          "primaryExemptions": 1,
+          "secondaryExemptions": 1,
+          "taxCategoryId": "synthetic600",
+          "taxDescription": "synthetic472",
+          "taxState": "synthetic465"
+        },
+        "residentState": {
+          "additionalAmount": 1,
+          "additionalIncomeAmount": 1,
+          "additionalPercent": 1,
+          "alternateCalculation": "synthetic138",
+          "deductionExemptionAmount": 1,
+          "dependantExemptionAmount": 1,
+          "exemptionAmount": 1,
+          "filingStatus": "synthetic416",
+          "id": 1,
+          "isBlocked": false,
+          "links": [],
+          "multipleJobsOrSpouseWorks": false,
+          "primaryExemptions": 1,
+          "secondaryExemptions": 1,
+          "taxCategoryId": "synthetic752",
+          "taxDescription": "synthetic637",
+          "taxState": "synthetic556"
+        }
+      },
+      "team": {
+        "calendarRule": {
+          "id": 1,
+          "links": [],
+          "restrictedAbsencePolicies": [],
+          "ruleDescription": "synthetic557",
+          "ruleName": "synthetic675",
+          "timeOffRestrictionDates": []
+        },
+        "id": 1,
+        "links": [],
+        "organizationField": "synthetic934",
+        "organizationValues": [],
+        "teamDescription": "synthetic754",
+        "teamName": "synthetic978"
+      },
+      "terminationDate": "2026-01-15T00:00:00Z",
+      "terminationReason": "synthetic642",
+      "terminationType": "synthetic145",
+      "timecardPunchStatusDate": "2026-01-15T00:00:00Z",
+      "timecardPunchStatusIsIn": false,
+      "timeclockId": "synthetic288",
+      "tobaccoUse": false,
+      "tobaccoUseEffectiveDate": "2026-01-15T00:00:00Z",
+      "uniqueId": "synthetic527",
+      "updatedDisabledEffectiveDate": "2026-01-15T00:00:00Z",
+      "updatedHireDate": "2026-01-15T00:00:00Z",
+      "updatedJobEffectiveDate": "2026-01-15T00:00:00Z",
+      "updatedSalaryEffectiveDate": "2026-01-15T00:00:00Z",
+      "updatedStatusDate": "2026-01-15T00:00:00Z",
+      "veteranStatusNotSpecified": false,
+      "workLocation": "synthetic5",
+      "workLocationDashDescription": "synthetic162",
+      "workersCompCode": "synthetic3",
+      "wotc": {
+        "applicationDate": "2026-01-15T00:00:00Z",
+        "includeCertification": false,
+        "jobAcceptedDate": "2026-01-15T00:00:00Z",
+        "jobOfferedDate": "2026-01-15T00:00:00Z"
+      }
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "direct_deposit",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.EmployeeDirectDepositModel",
+    "provider": "isolved",
+    "record": {
+      "accountNumber": "000000000001",
+      "accountType": "Checking",
+      "frequency": "synthetic666",
+      "id": 201,
+      "percent": 25,
+      "routingNumber": "000000000",
+      "sequenceNumber": 1,
+      "status": "Active"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "deduction",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.EmployeePayItemModel",
+    "provider": "isolved",
+    "record": {
+      "calcParams": [
+        {
+          "paramType": "TenantPercent",
+          "paramValue": 5
+        }
+      ],
+      "employeeId": 101,
+      "id": 301,
+      "payItemCode": "SYN401",
+      "payItemName": "Synthetic retirement",
+      "payItemType": "Deduction"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "501",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "payroll_run",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.PayrollRunHistoryModel",
+    "provider": "isolved",
+    "record": {
+      "id": 501,
+      "payDate": "2026-01-30T00:00:00Z",
+      "periodBeginDate": "2026-01-01T00:00:00Z",
+      "periodEndDate": "2026-01-15T00:00:00Z",
+      "runNumber": 7
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "paycheck",
+    "evidence": "contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.PayrollOffice.RestAPI.Models.CheckModel",
+    "provider": "isolved",
+    "record": {
+      "checkDate": "2026-01-30T00:00:00Z",
+      "deductions": [
+        {
+          "checkDollars": 100,
+          "itemCode": "SYN401",
+          "ytdDollars": 300
+        }
+      ],
+      "earnings": [
+        {
+          "checkDollars": 2000,
+          "checkHours": 80,
+          "itemCode": "REG",
+          "ytdDollars": 6000
+        }
+      ],
+      "employeeId": 101,
+      "grossPay": 2000,
+      "id": 601,
+      "netPay": 1500,
+      "payrollRunNumber": 7,
+      "taxes": [
+        {
+          "checkDollars": 400,
+          "isEmployeeTax": true,
+          "itemCode": "FIT"
+        }
+      ]
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "101",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "employee",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/106/schema (reference-docs/res/__v2__companies__(cid)__employees__(aid).html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "_links": {
+        "badges": "synthetic484",
+        "demographics": "synthetic649",
+        "hcm-fields": "synthetic426",
+        "hcm-profiles": "synthetic468",
+        "pay-info": "synthetic253",
+        "profiles": "synthetic608",
+        "self": "synthetic944"
+      },
+      "account_extra_fields": [],
+      "add_to_new_hire_export": false,
+      "address": {
+        "address_line_1": "synthetic422",
+        "address_line_2": "synthetic696",
+        "address_line_3": "synthetic806",
+        "city": "synthetic214",
+        "country": "USA",
+        "number": "synthetic5",
+        "number_addition": "synthetic9",
+        "state": "syn",
+        "state_code": "syn",
+        "zip": "28202"
+      },
+      "bsn": "synthetic982",
+      "cost_centers_info": {
+        "defaults": [],
+        "limits": []
+      },
+      "dates": {
+        "benefits": "2026-01-15",
+        "birthday": "2026-01-15",
+        "custom_dates": [],
+        "deceased": "2026-01-15",
+        "frozen_benefit": "2026-01-15",
+        "hired": "2024-01-15",
+        "peo_hired": "2026-01-15",
+        "re_hired": "2026-01-15",
+        "retired": "2026-01-15",
+        "review": "2026-01-15",
+        "seniority": "2026-01-15",
+        "started": "2026-01-15",
+        "terminated": "2026-01-15"
+      },
+      "ein": {
+        "id": 1
+      },
+      "employee_id": "synthetic102",
+      "external_id": "synthetic814",
+      "first_name": "Avery",
+      "first_screen": {
+        "id": "synthetic385"
+      },
+      "force_change_password": false,
+      "hardware_settings": {
+        "in_touch": {
+          "pin": 1,
+          "security_level": "EMPLOYEE"
+        }
+      },
+      "id": 101,
+      "isPhotoUploaded": false,
+      "last_name": "Example",
+      "locale": {
+        "id": 1
+      },
+      "locked": false,
+      "mailing_address": {
+        "address_line_1": "synthetic606",
+        "address_line_2": "synthetic769",
+        "address_line_3": "synthetic634",
+        "city": "synthetic759",
+        "country": "USA",
+        "number": "synthetic7",
+        "number_addition": "synthetic7",
+        "state": "syn",
+        "state_code": "syn",
+        "zip": "synthetic414"
+      },
+      "managed_cost_centers_enabled": false,
+      "managed_cost_centers_settings": {
+        "allow_save_others_cost_centers": false
+      },
+      "managers": [],
+      "middle_name": "synthetic172",
+      "national_id_numbers": [],
+      "national_insurance": "synthetic861",
+      "nickname": "synthetic823",
+      "phones": {
+        "cell_phone": "synthetic997",
+        "cell_phone_country_code": "synthetic765",
+        "cell_phone_country_id": "synthetic593",
+        "home_phone": "synthetic570",
+        "home_phone_country_code": "synthetic597",
+        "home_phone_country_id": "synthetic100",
+        "preferred_phone": "HOME",
+        "work_phone": "synthetic627",
+        "work_phone_country_code": "synthetic804",
+        "work_phone_country_id": "synthetic444"
+      },
+      "photo_href": "synthetic517",
+      "primary_account_id": 1,
+      "primary_email": "avery@example.invalid",
+      "salutation": "synthetic937",
+      "secondary_email": "synthetic450",
+      "social_insurance": "synthetic875",
+      "social_security": "synthetic378",
+      "status": "Active",
+      "suffix": "synthetic238",
+      "time_entry_extra_fields": [],
+      "timezone": "synthetic564",
+      "use_separate_mailing_address": false,
+      "username": "synthetic.avery"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "direct_deposit",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/137/schema (reference-docs/res/__v2__companies__(cid)__employees__(aid)__direct-deposits.html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "_links": {
+        "self": "https://example.invalid/deposits/201"
+      },
+      "account_number": "000000000001",
+      "account_type": "CHECKING",
+      "active": true,
+      "active_from": "2026-01-01",
+      "active_to": "9999-12-31",
+      "calc_method": {
+        "display_name": "Percentage of net",
+        "type": "NET_PAY"
+      },
+      "id": 201,
+      "percentage": 25,
+      "routing_number": "000000000",
+      "sequence": 1,
+      "type": "DIRECT_DEPOSIT"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "deduction",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/133/schema (reference-docs/res/__v2__companies__(cid)__employees__(aid)__deductions__(id).html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "deduction": {
+        "code": "SYN401",
+        "name": "Synthetic retirement"
+      },
+      "ee_calc_method": {
+        "method": {
+          "type": "TENANT_PERCENT"
+        },
+        "percent": 5
+      },
+      "effective_from": "2026-01-01",
+      "effective_to": "9999-12-31",
+      "id": 301
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "payroll_run_id": "501",
+      "record_id": "501",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "payroll_run",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/358/schema (reference-docs/res/__v2__companies__(cid)__payrolls.html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "end_date": "2026-01-15",
+      "id": 501,
+      "pay_date": "2026-01-30",
+      "start_date": "2026-01-01",
+      "status": "FINALIZED",
+      "type": {
+        "id": 1
+      }
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "paycheck",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/364/schema (reference-docs/res/__v2__companies__(cid)__payrolls__(id)__pay-statements__(id).html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "deductions": [
+        {
+          "deduction": {
+            "code": "SYN401",
+            "name": "Retirement"
+          },
+          "ee_amount": 100,
+          "er_amount": 50
+        }
+      ],
+      "earnings": [
+        {
+          "earning": {
+            "code": "REG",
+            "name": "Regular"
+          },
+          "ee_amount": 2000,
+          "hours": 80
+        }
+      ],
+      "employee": {
+        "account_id": 101
+      },
+      "id": 601,
+      "pay_date": "2026-01-30",
+      "status": "FINALIZED",
+      "taxes": [
+        {
+          "company_tax": {
+            "code": "FIT",
+            "name": "Federal"
+          },
+          "ee_amount": 400
+        }
+      ],
+      "type": {
+        "id": 1
+      }
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "compensation",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/33/schema (reference-docs/res/__v2__companies__(cid)__compensation__history__(id).html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "amount": 52000,
+      "amount_period": "YEAR",
+      "currency": "USD",
+      "effective_from": "2026-01-01",
+      "employee": {
+        "account_id": 101
+      },
+      "hourly_pay": 25,
+      "id": 701,
+      "num_pp_in_year": 26,
+      "time": 288000000,
+      "time_period": "PAY_PERIOD"
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "pay_info",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/159/schema (reference-docs/res/__v2__companies__(cid)__employees__(aid)__pay-info.html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {
+      "default_job": {
+        "id": 10
+      },
+      "payroll_classification": "REGULAR",
+      "standard_work_day": 28800000
+    }
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "employee_id": "101",
+      "payroll_run_id": "501",
+      "record_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "demographics",
+    "evidence": "contracts/ukg-ready/reference-schemas.json#/schemas/134/schema (reference-docs/res/__v2__companies__(cid)__employees__(aid)__demographics.html#schema-0)",
+    "provider": "ukg-ready",
+    "record": {}
+  },
+  {
+    "context": {
+      "company_id": "1",
+      "tenant_id": "synthetic-demo"
+    },
+    "entity": "company",
+    "evidence": "caller context",
+    "provider": "ukg-ready",
+    "record": {
+      "id": 1,
+      "name": "Synthetic Northwind"
+    }
+  }
+]

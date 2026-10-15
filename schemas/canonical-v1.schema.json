@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/tada/canonical-v1.schema.json",
+  "title": "Canonical normalization record v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entity",
+    "id",
+    "company_id",
+    "source",
+    "data",
+    "diagnostics",
+    "source_record",
+    "field_coverage",
+    "extensions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "entity": {
+      "enum": [
+        "company",
+        "employee",
+        "direct_deposit",
+        "deduction",
+        "payroll_run",
+        "paycheck",
+        "compensation",
+        "pay_info",
+        "demographics"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "company_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "employee_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payroll_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "provider",
+        "tenant_id",
+        "company_id",
+        "record_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "enum": [
+            "prismhr",
+            "isolved",
+            "ukg-ready"
+          ]
+        },
+        "tenant_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "company_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "gross_pay": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "net_pay": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "amount": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "percentage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "limit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "maximum": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "hourly_rate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "standard_hours": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+        },
+        "status": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "value": {
+              "enum": [
+                "active",
+                "inactive",
+                "pending",
+                "on_leave",
+                "terminated",
+                "cancelling",
+                "prenote",
+                "unknown"
+              ]
+            },
+            "source_value": {}
+          },
+          "required": [
+            "value",
+            "source_value"
+          ],
+          "additionalProperties": false
+        },
+        "employment": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "value": {
+                  "enum": [
+                    "active",
+                    "inactive",
+                    "pending",
+                    "on_leave",
+                    "terminated",
+                    "cancelling",
+                    "prenote",
+                    "unknown"
+                  ]
+                },
+                "source_value": {}
+              },
+              "required": [
+                "value",
+                "source_value"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "compensation": {
+          "type": "object",
+          "properties": {
+            "hourly_rate": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "period_salary": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "annual_salary": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "standard_hours": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "standard_day_hours": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            }
+          }
+        },
+        "allocation": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "percentage": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+            },
+            "method": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "enum": [
+                    "fixed",
+                    "fixed_skip_if_insufficient",
+                    "percentage",
+                    "percentage_of_net",
+                    "percentage_of_gross",
+                    "percentage_of_remainder",
+                    "remainder",
+                    "unknown"
+                  ]
+                },
+                "source_value": {}
+              },
+              "required": [
+                "value",
+                "source_value"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "path",
+          "message"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object"
+    },
+    "source_record": {
+      "type": "object"
+    },
+    "field_coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

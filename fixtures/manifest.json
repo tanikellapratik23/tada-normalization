@@ -1,0 +1,7 @@
+{
+  "seed": 42,
+  "generator": "tada.fixtures.generate",
+  "reference_commit": "4034f3347cba0abedb75443e8f782364ad108331",
+  "records": 21,
+  "data_classification": "synthetic only"
+}
