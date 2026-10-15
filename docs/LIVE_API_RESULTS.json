@@ -1,0 +1,265 @@
+{
+  "checked_at": "2026-10-15T17:53:25.109284+00:00",
+  "year": 2026,
+  "scope": "Bounded read-only smoke test; first company, sample employees and paychecks. Not a complete sync.",
+  "contains_provider_records_or_tokens": false,
+  "providers": [
+    {
+      "provider": "prismhr",
+      "checks": [
+        {
+          "endpoint": "GET /clientMaster/v1/getClientMaster",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "company",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 19
+        },
+        {
+          "endpoint": "GET /employee/v1/getEmployeeList",
+          "http_status": 200,
+          "result": "ok",
+          "records_seen": 16
+        },
+        {
+          "endpoint": "GET /employee/v1/getEmployee (all documented sections)",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "employee",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "invalid_value": 4
+          },
+          "source_schema_differences": 8
+        },
+        {
+          "endpoint": "employee.directDeposit.achVoucher[]",
+          "result": "empty",
+          "http_status": 200,
+          "entity": "direct_deposit",
+          "records_seen": 0,
+          "normalized": 0,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /deductions/v1/getDeductions",
+          "http_status": 200,
+          "result": "empty",
+          "entity": "deduction",
+          "records_seen": 0,
+          "normalized": 0,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /payroll/v1/getPayrollSummary",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "payroll_run",
+          "records_seen": 3,
+          "normalized": 2,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "invalid_value": 4,
+            "unknown_enum": 2
+          },
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /payroll/v1/getPayrollVoucherForBatch (page 0)",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "paycheck",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "invalid_value": 1,
+            "earnings_amount_ambiguous": 1
+          },
+          "source_schema_differences": 15
+        }
+      ]
+    },
+    {
+      "provider": "isolved",
+      "checks": [
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "company",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 10
+        },
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}/employees",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "employee",
+          "records_seen": 2,
+          "normalized": 2,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "unknown_enum": 2
+          },
+          "source_schema_differences": 90
+        },
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}/employees/{employeeId}/directdeposits",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "direct_deposit",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "unknown_enum": 1
+          },
+          "source_schema_differences": 3
+        },
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}/employees/{employeeId}/payItems",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "deduction",
+          "records_seen": 19,
+          "normalized": 2,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "tenant_calculation_rules": 2
+          },
+          "source_schema_differences": 8
+        },
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}/employees/{employeeId}/checks",
+          "http_status": 200,
+          "result": "empty",
+          "entity": "paycheck",
+          "records_seen": 0,
+          "normalized": 0,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /api/clients/{clientId}/legals/{legalId}/paygroupId/{paygroupId}/payrollRunHistory",
+          "http_status": 404,
+          "result": "failed",
+          "reason": "http_error"
+        }
+      ]
+    },
+    {
+      "provider": "ukg-ready",
+      "checks": [
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/employees",
+          "http_status": 200,
+          "result": "ok",
+          "records_seen": 103
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/employees/{aid}",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "employee",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "unknown_enum": 1
+          },
+          "source_schema_differences": 2
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/employees/{aid}/pay-info",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "pay_info",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 2
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/employees/{aid}/direct-deposits",
+          "http_status": 200,
+          "result": "empty",
+          "entity": "direct_deposit",
+          "records_seen": 0,
+          "normalized": 0,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/employees/{aid}/deductions",
+          "http_status": 404,
+          "result": "failed",
+          "reason": "http_error",
+          "records_seen": 0
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/payrolls",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "payroll_run",
+          "records_seen": 49,
+          "normalized": 2,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {},
+          "source_schema_differences": 0
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/payrolls/{id}/pay-statements",
+          "http_status": 200,
+          "result": "ok",
+          "records_seen": 1
+        },
+        {
+          "endpoint": "GET /rest/v2/companies/{cid}/payrolls/{id}/pay-statements/{id}",
+          "http_status": 200,
+          "result": "ok",
+          "entity": "paycheck",
+          "records_seen": 1,
+          "normalized": 1,
+          "field_coverage_valid": true,
+          "source_validation": "performed",
+          "diagnostics_by_code": {
+            "totals_unavailable": 1,
+            "hours_unit_unverified": 1
+          },
+          "source_schema_differences": 0
+        }
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `firstName` | `data.profile.first_name` |
 | `middleInitial` | `data.profile.middle_name` |
 | `preferredName` | `data.profile.preferred_name` |
-| `person.ethnicCode` | `extensions (provider-specific, unchanged)` |
+| `person.ethnicCode` | `data.profile.ethnicity_code` |
 | `person.birthDate` | `data.profile.birth_date` |
 | `person.driverLicenseId` | `extensions (provider-specific, unchanged)` |
 | `person.cobraSSN` | `extensions (provider-specific, unchanged)` |
@@ -24,13 +24,13 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `person.marriedDate` | `extensions (provider-specific, unchanged)` |
 | `person.smoker` | `extensions (provider-specific, unchanged)` |
 | `person.peoStartDate` | `extensions (provider-specific, unchanged)` |
-| `person.handicapped` | `extensions (provider-specific, unchanged)` |
+| `person.handicapped` | `data.profile.disability_code` |
 | `person.blind` | `extensions (provider-specific, unchanged)` |
-| `person.veteran` | `extensions (provider-specific, unchanged)` |
+| `person.veteran` | `data.profile.veteran_code` |
 | `person.vietnamVet` | `extensions (provider-specific, unchanged)` |
 | `person.disabledVet` | `extensions (provider-specific, unchanged)` |
-| `person.hrpCitizenshipCountry` | `extensions (provider-specific, unchanged)` |
-| `person.deceased` | `extensions (provider-specific, unchanged)` |
+| `person.hrpCitizenshipCountry` | `data.profile.citizenship_country` |
+| `person.deceased` | `data.profile.deceased` |
 | `person.gender` | `data.profile.gender_code` |
 | `person.taxZipCode` | `extensions (provider-specific, unchanged)` |
 | `person.highlyCompensated` | `extensions (provider-specific, unchanged)` |
@@ -38,7 +38,7 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `person.overrideGeoCode` | `extensions (provider-specific, unchanged)` |
 | `person.overrideGeoEndDate` | `extensions (provider-specific, unchanged)` |
 | `person.nickname` | `extensions (provider-specific, unchanged)` |
-| `person.deceasedDate` | `extensions (provider-specific, unchanged)` |
+| `person.deceasedDate` | `data.profile.deceased_date` |
 | `person.driverState` | `extensions (provider-specific, unchanged)` |
 | `person.driverLicenseExpireDate` | `extensions (provider-specific, unchanged)` |
 | `person.driverLicenseClass` | `extensions (provider-specific, unchanged)` |
@@ -86,7 +86,7 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `contactInformation.schoolDistrict` | `extensions (provider-specific, unchanged)` |
 | `contactInformation.homePhone` | `data.contact.home_phone` |
 | `contactInformation.mobilePhone` | `data.contact.mobile_phone` |
-| `contactInformation.emailAddress` | `data.contact.personal_email` |
+| `contactInformation.emailAddress` | `data.contact.email` |
 | `client.employeeStatus` | `data.employment.status_code` |
 | `client.statusClass` | `data.employment.status` |
 | `client.statusDate` | `data.employment.status_date` |
@@ -118,11 +118,11 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `client.scorpOwner` | `extensions (provider-specific, unchanged)` |
 | `client.businessOwner` | `extensions (provider-specific, unchanged)` |
 | `client.termReasonCode` | `data.employment.termination_reason_code` |
-| `client.termExplanation` | `extensions (provider-specific, unchanged)` |
+| `client.termExplanation` | `data.employment.termination_explanation` |
 | `client.lastStatusChangeDate` | `extensions (provider-specific, unchanged)` |
 | `client.lastJobChangeDate` | `extensions (provider-specific, unchanged)` |
 | `client.newHireReportDate` | `extensions (provider-specific, unchanged)` |
-| `client.employee1099` | `extensions (provider-specific, unchanged)` |
+| `client.employee1099` | `data.employment.contractor` |
 | `client.clientEmployeeId` | `data.employment.employee_number` |
 | `client.clockNum` | `extensions (provider-specific, unchanged)` |
 | `client.primaryEmailSource` | `extensions (provider-specific, unchanged)` |
@@ -131,15 +131,15 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `client.returnDate` | `data.employment.return_date` |
 | `client.workPhone` | `data.contact.work_phone` |
 | `client.workPhoneExt` | `data.contact.work_phone_extension` |
-| `client.probationDate` | `extensions (provider-specific, unchanged)` |
+| `client.probationDate` | `data.employment.probation_date` |
 | `client.courtOrderMedical` | `extensions (provider-specific, unchanged)` |
 | `client.childSpouseSupport` | `extensions (provider-specific, unchanged)` |
 | `client.childSpouseArrears` | `extensions (provider-specific, unchanged)` |
-| `client.addressLine1` | `extensions (provider-specific, unchanged)` |
-| `client.addressLine2` | `extensions (provider-specific, unchanged)` |
-| `client.city` | `extensions (provider-specific, unchanged)` |
-| `client.state` | `extensions (provider-specific, unchanged)` |
-| `client.zip` | `extensions (provider-specific, unchanged)` |
+| `client.addressLine1` | `data.mailing_address.line1` |
+| `client.addressLine2` | `data.mailing_address.line2` |
+| `client.city` | `data.mailing_address.city` |
+| `client.state` | `data.mailing_address.region` |
+| `client.zip` | `data.mailing_address.postal_code` |
 | `client.zipSuffix` | `extensions (provider-specific, unchanged)` |
 | `client.handbookMailDate` | `extensions (provider-specific, unchanged)` |
 | `client.handbookRecvDate` | `extensions (provider-specific, unchanged)` |
@@ -161,8 +161,8 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `client.homeDepartment` | `data.organization.department_code` |
 | `client.workShift` | `data.organization.shift_code` |
 | `client.projCostCenter` | `extensions (provider-specific, unchanged)` |
-| `client.workGroupCode` | `extensions (provider-specific, unchanged)` |
-| `client.benefitGroup` | `extensions (provider-specific, unchanged)` |
+| `client.workGroupCode` | `data.organization.work_group_code` |
+| `client.benefitGroup` | `data.organization.benefit_group_code` |
 | `client.retirementBenefitGroup` | `extensions (provider-specific, unchanged)` |
 | `client.workEmail` | `data.contact.work_email` |
 | `client.electronic1095C` | `extensions (provider-specific, unchanged)` |
@@ -217,8 +217,8 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `compensation.fedDependents` | `extensions (provider-specific, unchanged)` |
 | `compensation.fedOtherIncome` | `extensions (provider-specific, unchanged)` |
 | `compensation.fedDeductions` | `extensions (provider-specific, unchanged)` |
-| `compensation.hourlyPayRate` | `extensions (provider-specific, unchanged)` |
-| `compensation.hourlyPayPeriod` | `extensions (provider-specific, unchanged)` |
+| `compensation.hourlyPayRate` | `data.compensation.basis_rate` |
+| `compensation.hourlyPayPeriod` | `data.compensation.basis_rate_period_code` |
 | `compensation.deliverCheckHome` | `extensions (provider-specific, unchanged)` |
 | `compensation.autoAcceptTimeSheet` | `extensions (provider-specific, unchanged)` |
 | `compensation.longPayTable` | `extensions (provider-specific, unchanged)` |
@@ -232,7 +232,7 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `compensation.localTax[].addlWithheld` | `extensions (provider-specific, unchanged)` |
 | `compensation.lastChangePct` | `extensions (provider-specific, unchanged)` |
 | `compensation.lastChangeAmt` | `extensions (provider-specific, unchanged)` |
-| `compensation.lastPayDate` | `extensions (provider-specific, unchanged)` |
+| `compensation.lastPayDate` | `data.compensation.last_pay_date` |
 | `compensation.quartile` | `extensions (provider-specific, unchanged)` |
 | `compensation.compaRatio` | `extensions (provider-specific, unchanged)` |
 | `compensation.benefitsBasePay` | `extensions (provider-specific, unchanged)` |
@@ -288,52 +288,52 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `compensation.providerNotifiedOn` | `extensions (provider-specific, unchanged)` |
 | `compensation.alternateId` | `extensions (provider-specific, unchanged)` |
 | `compensation.w8Filed` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achStatus` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.voucherType` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.suppressAccountPrint` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].transitNum` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].accountNum` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].accountType` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].method` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].amount` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].limit` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].status` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].bankName` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.achVoucher[].voucherTypeOverride` | `extensions (provider-specific, unchanged)` |
-| `directDeposit.directDepositChecksum` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].transitNum` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].accountNum` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].accountType` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].method` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].amount` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].status` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].bankName` | `extensions (provider-specific, unchanged)` |
-| `hsa.hsaDepositSettings[].voucherTypeOverride` | `extensions (provider-specific, unchanged)` |
-| `hsa.achChecksum` | `extensions (provider-specific, unchanged)` |
+| `directDeposit.achStatus` | `data.deposit_settings.achStatus` |
+| `directDeposit.voucherType` | `data.deposit_settings.voucherType` |
+| `directDeposit.suppressAccountPrint` | `data.deposit_settings.suppressAccountPrint` |
+| `directDeposit.achVoucher[].transitNum` | `data.deposit_settings.achVoucher[].transitNum` |
+| `directDeposit.achVoucher[].accountNum` | `data.deposit_settings.achVoucher[].accountNum` |
+| `directDeposit.achVoucher[].accountType` | `data.deposit_settings.achVoucher[].accountType` |
+| `directDeposit.achVoucher[].method` | `data.deposit_settings.achVoucher[].method` |
+| `directDeposit.achVoucher[].amount` | `data.deposit_settings.achVoucher[].amount` |
+| `directDeposit.achVoucher[].limit` | `data.deposit_settings.achVoucher[].limit` |
+| `directDeposit.achVoucher[].status` | `data.deposit_settings.achVoucher[].status` |
+| `directDeposit.achVoucher[].bankName` | `data.deposit_settings.achVoucher[].bankName` |
+| `directDeposit.achVoucher[].voucherTypeOverride` | `data.deposit_settings.achVoucher[].voucherTypeOverride` |
+| `directDeposit.directDepositChecksum` | `data.deposit_settings.directDepositChecksum` |
+| `hsa.hsaDepositSettings[].transitNum` | `data.hsa.hsaDepositSettings[].transitNum` |
+| `hsa.hsaDepositSettings[].accountNum` | `data.hsa.hsaDepositSettings[].accountNum` |
+| `hsa.hsaDepositSettings[].accountType` | `data.hsa.hsaDepositSettings[].accountType` |
+| `hsa.hsaDepositSettings[].method` | `data.hsa.hsaDepositSettings[].method` |
+| `hsa.hsaDepositSettings[].amount` | `data.hsa.hsaDepositSettings[].amount` |
+| `hsa.hsaDepositSettings[].status` | `data.hsa.hsaDepositSettings[].status` |
+| `hsa.hsaDepositSettings[].bankName` | `data.hsa.hsaDepositSettings[].bankName` |
+| `hsa.hsaDepositSettings[].voucherTypeOverride` | `data.hsa.hsaDepositSettings[].voucherTypeOverride` |
+| `hsa.achChecksum` | `data.hsa.achChecksum` |
 | `employeeEvents.employeeEvent[].eventCode` | `extensions (provider-specific, unchanged)` |
 | `employeeEvents.employeeEvent[].effectiveDate` | `extensions (provider-specific, unchanged)` |
 | `employeeEvents.employeeEvent[].description` | `extensions (provider-specific, unchanged)` |
 | `employeeEvents.employeeEvent[].actionDate` | `extensions (provider-specific, unchanged)` |
 | `employeeEvents.employeeEvent[].comment` | `extensions (provider-specific, unchanged)` |
-| `health.allergy[]` | `extensions (provider-specific, unchanged)` |
-| `health.condition[]` | `extensions (provider-specific, unchanged)` |
-| `health.program[]` | `extensions (provider-specific, unchanged)` |
-| `health.height` | `extensions (provider-specific, unchanged)` |
-| `health.weight` | `extensions (provider-specific, unchanged)` |
-| `health.bloodType` | `extensions (provider-specific, unchanged)` |
-| `health.bloodRh` | `extensions (provider-specific, unchanged)` |
-| `health.bloodDonor` | `extensions (provider-specific, unchanged)` |
-| `health.donateDateLast` | `extensions (provider-specific, unchanged)` |
-| `health.donateDateNext` | `extensions (provider-specific, unchanged)` |
-| `health.drugTestResult` | `extensions (provider-specific, unchanged)` |
-| `health.drugTestDateLast` | `extensions (provider-specific, unchanged)` |
-| `health.drugTestDateNext` | `extensions (provider-specific, unchanged)` |
-| `health.audioTestResult` | `extensions (provider-specific, unchanged)` |
-| `health.audioTestDateLast` | `extensions (provider-specific, unchanged)` |
-| `health.audioTestDateNext` | `extensions (provider-specific, unchanged)` |
-| `health.physExamResult` | `extensions (provider-specific, unchanged)` |
-| `health.physExamDateLast` | `extensions (provider-specific, unchanged)` |
-| `health.physExamDateNext` | `extensions (provider-specific, unchanged)` |
+| `health.allergy[]` | `data.health.allergy[]` |
+| `health.condition[]` | `data.health.condition[]` |
+| `health.program[]` | `data.health.program[]` |
+| `health.height` | `data.health.height` |
+| `health.weight` | `data.health.weight` |
+| `health.bloodType` | `data.health.bloodType` |
+| `health.bloodRh` | `data.health.bloodRh` |
+| `health.bloodDonor` | `data.health.bloodDonor` |
+| `health.donateDateLast` | `data.health.donateDateLast` |
+| `health.donateDateNext` | `data.health.donateDateNext` |
+| `health.drugTestResult` | `data.health.drugTestResult` |
+| `health.drugTestDateLast` | `data.health.drugTestDateLast` |
+| `health.drugTestDateNext` | `data.health.drugTestDateNext` |
+| `health.audioTestResult` | `data.health.audioTestResult` |
+| `health.audioTestDateLast` | `data.health.audioTestDateLast` |
+| `health.audioTestDateNext` | `data.health.audioTestDateNext` |
+| `health.physExamResult` | `data.health.physExamResult` |
+| `health.physExamDateLast` | `data.health.physExamDateLast` |
+| `health.physExamDateNext` | `data.health.physExamDateNext` |
 | `skillsAndEducation.skillChecksum` | `data.skills_education.skillChecksum` |
 | `skillsAndEducation.skill[].skillCode` | `data.skills_education.skill[].skillCode` |
 | `skillsAndEducation.skill[].competencyLevel` | `data.skills_education.skill[].competencyLevel` |
@@ -349,13 +349,13 @@ Source: `contracts/prismhr/openapi/prismhr-2025.09.openapi.json#/components/sche
 | `skillsAndEducation.osha10Certified` | `data.skills_education.osha10Certified` |
 | `absenceJournalId[]` | `extensions (provider-specific, unchanged)` |
 | `benefitEnrollmentCompleted` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].deductionCode` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].checkStubDescription` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].status` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].amount` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].startDate` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].stopDate` | `extensions (provider-specific, unchanged)` |
-| `scheduledDeduction[].cutbackPayeeCode` | `extensions (provider-specific, unchanged)` |
+| `scheduledDeduction[].deductionCode` | `data.scheduled_deductions[].deductionCode` |
+| `scheduledDeduction[].checkStubDescription` | `data.scheduled_deductions[].checkStubDescription` |
+| `scheduledDeduction[].status` | `data.scheduled_deductions[].status` |
+| `scheduledDeduction[].amount` | `data.scheduled_deductions[].amount` |
+| `scheduledDeduction[].startDate` | `data.scheduled_deductions[].startDate` |
+| `scheduledDeduction[].stopDate` | `data.scheduled_deductions[].stopDate` |
+| `scheduledDeduction[].cutbackPayeeCode` | `data.scheduled_deductions[].cutbackPayeeCode` |
 | `newHireQuestions[].code` | `extensions (provider-specific, unchanged)` |
 | `newHireQuestions[].description` | `extensions (provider-specific, unchanged)` |
 | `newHireQuestions[].answer` | `extensions (provider-specific, unchanged)` |
@@ -442,19 +442,19 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `directDeposits[].links[].rel` | `extensions (provider-specific, unchanged)` |
 | `disabilityDescription` | `extensions (provider-specific, unchanged)` |
 | `disabilityNotes` | `extensions (provider-specific, unchanged)` |
-| `disabled` | `extensions (provider-specific, unchanged)` |
-| `disabledEffectiveDate` | `extensions (provider-specific, unchanged)` |
+| `disabled` | `data.profile.disabled` |
+| `disabledEffectiveDate` | `data.profile.disability_effective_date` |
 | `disabledRequiresAccomodation` | `extensions (provider-specific, unchanged)` |
 | `eeoGenderOverride` | `extensions (provider-specific, unchanged)` |
 | `eligibleForRehire` | `data.employment.eligible_for_rehire` |
-| `emailAddress` | `data.contact.personal_email` |
+| `emailAddress` | `data.contact.email` |
 | `employeeNumber` | `data.employment.employee_number` |
 | `employmentCategoryCode` | `data.employment.type_code` |
-| `employmentCategoryEffectiveDate` | `extensions (provider-specific, unchanged)` |
-| `employmentCategoryFullTimeEquivalent` | `extensions (provider-specific, unchanged)` |
+| `employmentCategoryEffectiveDate` | `data.employment.category_effective_date` |
+| `employmentCategoryFullTimeEquivalent` | `data.employment.fte` |
 | `employmentStatus` | `data.employment.status (tenant lookup)` |
 | `enableSelfService` | `extensions (provider-specific, unchanged)` |
-| `ethnicOrigin` | `extensions (provider-specific, unchanged)` |
+| `ethnicOrigin` | `data.profile.ethnicity_code` |
 | `gender` | `data.profile.gender_code` |
 | `hireDate` | `data.employment.hire_date` |
 | `hourlyRate` | `data.compensation.hourly_rate` |
@@ -501,18 +501,18 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `i9Documents.i9CompletedDate` | `extensions (provider-specific, unchanged)` |
 | `idType` | `extensions (provider-specific, unchanged)` |
 | `isManager` | `extensions (provider-specific, unchanged)` |
-| `isPending` | `extensions (provider-specific, unchanged)` |
+| `isPending` | `data.employment.pending` |
 | `isRecentlySeparatedVeteran` | `extensions (provider-specific, unchanged)` |
 | `isRemoteWorker` | `data.employment.remote_worker` |
 | `isSupervisor` | `extensions (provider-specific, unchanged)` |
 | `jobCode` | `data.job.code` |
-| `jobEeoCategory` | `extensions (provider-specific, unchanged)` |
+| `jobEeoCategory` | `data.job.eeo_category_code` |
 | `jobEffectiveDate` | `data.job.start_date` |
 | `jobFLSAExempt` | `data.job.flsa_exempt` |
-| `jobGroup` | `extensions (provider-specific, unchanged)` |
+| `jobGroup` | `data.job.group` |
 | `jobId` | `extensions (provider-specific, unchanged)` |
-| `jobIsSeasonal` | `extensions (provider-specific, unchanged)` |
-| `jobIsUnion` | `extensions (provider-specific, unchanged)` |
+| `jobIsSeasonal` | `data.job.seasonal` |
+| `jobIsUnion` | `data.job.union` |
 | `jobTitle` | `data.job.title` |
 | `labors[].laborDescription` | `data.organization.labor_assignments[].laborDescription` |
 | `labors[].laborField` | `data.organization.labor_assignments[].laborField` |
@@ -525,7 +525,7 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `messages[].links[].href` | `extensions (provider-specific, unchanged)` |
 | `messages[].links[].method` | `extensions (provider-specific, unchanged)` |
 | `messages[].links[].rel` | `extensions (provider-specific, unchanged)` |
-| `militaryStatus` | `extensions (provider-specific, unchanged)` |
+| `militaryStatus` | `data.profile.military_status_code` |
 | `miscDataSets[].fields[].id.category` | `data.custom_data_sets[].fields[].id.category` |
 | `miscDataSets[].fields[].id.dataType` | `data.custom_data_sets[].fields[].id.dataType` |
 | `miscDataSets[].fields[].id.fieldCode` | `data.custom_data_sets[].fields[].id.fieldCode` |
@@ -579,19 +579,19 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `organizations[].value` | `data.organization.assignments[].value` |
 | `organizations[].valueDescription` | `data.organization.assignments[].valueDescription` |
 | `originalHireDate` | `data.employment.first_hire_date` |
-| `overrideAddress.address1` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.address2` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.city` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.country` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.deleteAddress` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.foreignPostalCode` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.foreignStateProvince` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.militaryCity` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.militaryState` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.state` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.useForPaychecks` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.useForTaxForms` | `extensions (provider-specific, unchanged)` |
-| `overrideAddress.zipCode` | `extensions (provider-specific, unchanged)` |
+| `overrideAddress.address1` | `data.tax_address_override.address1` |
+| `overrideAddress.address2` | `data.tax_address_override.address2` |
+| `overrideAddress.city` | `data.tax_address_override.city` |
+| `overrideAddress.country` | `data.tax_address_override.country` |
+| `overrideAddress.deleteAddress` | `data.tax_address_override.deleteAddress` |
+| `overrideAddress.foreignPostalCode` | `data.tax_address_override.foreignPostalCode` |
+| `overrideAddress.foreignStateProvince` | `data.tax_address_override.foreignStateProvince` |
+| `overrideAddress.militaryCity` | `data.tax_address_override.militaryCity` |
+| `overrideAddress.militaryState` | `data.tax_address_override.militaryState` |
+| `overrideAddress.state` | `data.tax_address_override.state` |
+| `overrideAddress.useForPaychecks` | `data.tax_address_override.useForPaychecks` |
+| `overrideAddress.useForTaxForms` | `data.tax_address_override.useForTaxForms` |
+| `overrideAddress.zipCode` | `data.tax_address_override.zipCode` |
 | `payFrequency` | `data.compensation.periods_per_year` |
 | `payGroup` | `data.compensation.pay_group` |
 | `payRates[].payRateName` | `data.compensation.alternate_rates[].payRateName` |
@@ -599,11 +599,11 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `payType` | `extensions (provider-specific, unchanged)` |
 | `perPaySalary` | `data.compensation.period_salary` |
 | `personal.id` | `extensions (provider-specific, unchanged)` |
-| `personal.faxNumber` | `extensions (provider-specific, unchanged)` |
-| `personal.homePhone` | `extensions (provider-specific, unchanged)` |
-| `personal.mobilePhone` | `extensions (provider-specific, unchanged)` |
-| `personal.officePhone` | `extensions (provider-specific, unchanged)` |
-| `personal.personalEmailAddress` | `extensions (provider-specific, unchanged)` |
+| `personal.faxNumber` | `data.contact.fax` |
+| `personal.homePhone` | `data.contact.home_phone` |
+| `personal.mobilePhone` | `data.contact.mobile_phone` |
+| `personal.officePhone` | `data.contact.work_phone` |
+| `personal.personalEmailAddress` | `data.contact.personal_email` |
 | `personal.preferredPronouns` | `extensions (provider-specific, unchanged)` |
 | `personal.links[].href` | `extensions (provider-specific, unchanged)` |
 | `personal.links[].method` | `extensions (provider-specific, unchanged)` |
@@ -614,11 +614,11 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `previousPunchLabors[].links[].method` | `extensions (provider-specific, unchanged)` |
 | `previousPunchLabors[].links[].rel` | `extensions (provider-specific, unchanged)` |
 | `profilePicture` | `extensions (provider-specific, unchanged)` |
-| `protectedVeteran` | `extensions (provider-specific, unchanged)` |
+| `protectedVeteran` | `data.profile.protected_veteran` |
 | `reciprocityRule` | `extensions (provider-specific, unchanged)` |
 | `rehireDate` | `data.employment.rehire_date` |
 | `salaryEffectiveDate` | `data.compensation.effective_date` |
-| `socCode` | `extensions (provider-specific, unchanged)` |
+| `socCode` | `data.job.soc_code` |
 | `ssn` | `extensions (provider-specific, unchanged)` |
 | `statusDate` | `data.employment.status_date` |
 | `taxes.federal.id` | `data.tax_settings.federal.id` |
@@ -763,7 +763,7 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `timecardPunchStatusDate` | `extensions (provider-specific, unchanged)` |
 | `timecardPunchStatusIsIn` | `extensions (provider-specific, unchanged)` |
 | `timeclockId` | `extensions (provider-specific, unchanged)` |
-| `tobaccoUse` | `extensions (provider-specific, unchanged)` |
+| `tobaccoUse` | `data.profile.tobacco_use` |
 | `tobaccoUseEffectiveDate` | `extensions (provider-specific, unchanged)` |
 | `uniqueId` | `extensions (provider-specific, unchanged)` |
 | `updatedDisabledEffectiveDate` | `extensions (provider-specific, unchanged)` |
@@ -772,7 +772,7 @@ Source: `contracts/isolved/openapi/isolved-v6.swagger.json#/definitions/AOS.Payr
 | `updatedSalaryEffectiveDate` | `extensions (provider-specific, unchanged)` |
 | `updatedStatusDate` | `extensions (provider-specific, unchanged)` |
 | `veteranStatusNotSpecified` | `extensions (provider-specific, unchanged)` |
-| `workersCompCode` | `extensions (provider-specific, unchanged)` |
+| `workersCompCode` | `data.employment.workers_comp_code` |
 | `workLocation` | `data.organization.location_code` |
 | `workLocationDashDescription` | `extensions (provider-specific, unchanged)` |
 | `wotc.applicationDate` | `extensions (provider-specific, unchanged)` |
@@ -811,14 +811,14 @@ Source: `contracts/ukg-ready/reference-schemas.json#/schemas/106/schema (referen
 | `address.number` | `extensions (provider-specific, unchanged)` |
 | `address.number_addition` | `extensions (provider-specific, unchanged)` |
 | `use_separate_mailing_address` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.country` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.address_line_1` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.address_line_2` | `extensions (provider-specific, unchanged)` |
+| `mailing_address.country` | `data.mailing_address.country` |
+| `mailing_address.address_line_1` | `data.mailing_address.line1` |
+| `mailing_address.address_line_2` | `data.mailing_address.line2` |
 | `mailing_address.address_line_3` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.city` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.state` | `extensions (provider-specific, unchanged)` |
+| `mailing_address.city` | `data.mailing_address.city` |
+| `mailing_address.state` | `data.mailing_address.region` |
 | `mailing_address.state_code` | `extensions (provider-specific, unchanged)` |
-| `mailing_address.zip` | `extensions (provider-specific, unchanged)` |
+| `mailing_address.zip` | `data.mailing_address.postal_code` |
 | `mailing_address.number` | `extensions (provider-specific, unchanged)` |
 | `mailing_address.number_addition` | `extensions (provider-specific, unchanged)` |
 | `primary_account_id` | `extensions (provider-specific, unchanged)` |
@@ -835,19 +835,19 @@ Source: `contracts/ukg-ready/reference-schemas.json#/schemas/106/schema (referen
 | `phones.work_phone_country_id` | `extensions (provider-specific, unchanged)` |
 | `phones.work_phone_country_code` | `extensions (provider-specific, unchanged)` |
 | `phones.work_phone` | `data.contact.work_phone` |
-| `phones.preferred_phone` | `extensions (provider-specific, unchanged)` |
+| `phones.preferred_phone` | `data.contact.preferred_phone_code` |
 | `locale.id` | `extensions (provider-specific, unchanged)` |
 | `managers[].index` | `data.organization.managers[].index` |
 | `managers[].empl_ref.account_id` | `data.organization.managers[].empl_ref.account_id` |
 | `national_insurance` | `extensions (provider-specific, unchanged)` |
 | `nickname` | `data.profile.preferred_name` |
-| `primary_email` | `data.contact.personal_email` |
+| `primary_email` | `data.contact.email` |
 | `secondary_email` | `data.contact.secondary_email` |
-| `salutation` | `extensions (provider-specific, unchanged)` |
+| `salutation` | `data.profile.prefix` |
 | `social_insurance` | `extensions (provider-specific, unchanged)` |
 | `social_security` | `extensions (provider-specific, unchanged)` |
-| `suffix` | `extensions (provider-specific, unchanged)` |
-| `timezone` | `extensions (provider-specific, unchanged)` |
+| `suffix` | `data.profile.suffix` |
+| `timezone` | `data.profile.timezone` |
 | `cost_centers_info.defaults[].index` | `data.organization.cost_centers.defaults[].index` |
 | `cost_centers_info.defaults[].value.id` | `data.organization.cost_centers.defaults[].value.id` |
 | `cost_centers_info.limits[].index` | `data.organization.cost_centers.limits[].index` |
@@ -856,17 +856,17 @@ Source: `contracts/ukg-ready/reference-schemas.json#/schemas/106/schema (referen
 | `cost_centers_info.limits[].values[].type` | `data.organization.cost_centers.limits[].values[].type` |
 | `add_to_new_hire_export` | `extensions (provider-specific, unchanged)` |
 | `dates.hired` | `data.employment.hire_date` |
-| `dates.deceased` | `extensions (provider-specific, unchanged)` |
+| `dates.deceased` | `data.profile.deceased_date` |
 | `dates.re_hired` | `data.employment.rehire_date` |
 | `dates.started` | `data.employment.start_date` |
 | `dates.birthday` | `data.profile.birth_date` |
 | `dates.review` | `extensions (provider-specific, unchanged)` |
 | `dates.seniority` | `data.employment.seniority_date` |
 | `dates.frozen_benefit` | `extensions (provider-specific, unchanged)` |
-| `dates.benefits` | `extensions (provider-specific, unchanged)` |
-| `dates.retired` | `extensions (provider-specific, unchanged)` |
+| `dates.benefits` | `data.employment.benefits_date` |
+| `dates.retired` | `data.employment.retired_date` |
 | `dates.terminated` | `data.employment.termination_date` |
-| `dates.peo_hired` | `extensions (provider-specific, unchanged)` |
+| `dates.peo_hired` | `data.employment.peo_hire_date` |
 | `dates.custom_dates[].index` | `data.custom_dates[].index` |
 | `dates.custom_dates[].date` | `data.custom_dates[].date` |
 | `account_extra_fields[].index` | `data.custom_fields[].index` |
@@ -885,7 +885,7 @@ Source: `contracts/ukg-ready/reference-schemas.json#/schemas/106/schema (referen
 | `hardware_settings.in_touch.pin` | `extensions (provider-specific, unchanged)` |
 | `managed_cost_centers_enabled` | `extensions (provider-specific, unchanged)` |
 | `managed_cost_centers_settings.allow_save_others_cost_centers` | `extensions (provider-specific, unchanged)` |
-| `national_id_numbers[].type` | `extensions (provider-specific, unchanged)` |
-| `national_id_numbers[].value` | `extensions (provider-specific, unchanged)` |
-| `national_id_numbers[].primary` | `extensions (provider-specific, unchanged)` |
+| `national_id_numbers[].type` | `data.national_identifiers[].type` |
+| `national_id_numbers[].value` | `data.national_identifiers[].value` |
+| `national_id_numbers[].primary` | `data.national_identifiers[].primary` |
 

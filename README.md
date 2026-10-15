@@ -1,12 +1,22 @@
 # Tada · Payroll Data Normalization
 
-A local platform that transforms **PrismHR, isolved, and UKG Ready** company, employee, direct-deposit, deduction, payroll-run and paycheck data into an auditable canonical model.
+I built this project to normalize company, employee, direct-deposit, deduction, and payroll data from **PrismHR, isolved, and UKG Ready** into one consistent model.
 
-The emphasis is preserving meaning: exact decimals, explicit provider mappings, scoped relationships, unknown-code diagnostics, and a record of where every source field went. A CLI imports and exports JSON; SQLite stores linked records; a local browser explorer lets reviewers inspect the results.
+I chose **Python and SQLite** because I wanted the project to be easy to run locally without setting up a database server or relying on live API access. The CLI handles normalization and imports, SQLite stores the relationships, and a small browser UI lets me inspect the results.
+
+My main goal was to preserve what each provider actually means. I use explicit mappings for common fields, decimal strings for money, and diagnostics when a value is ambiguous. I also keep every source field so I can trace a result back to its input instead of silently dropping data.
+
+## My approach
+
+I started with the supplied provider specifications and lookup references. I kept isolved's primary snapshot separate from its alternate version, and treated UKG's cached pages as documentation rather than assuming they were a complete OpenAPI contract.
+
+From there, I designed canonical entities for companies, employees, deposit and deduction setup, payroll runs, and paychecks. I kept provider-specific fields as explicit extensions when there wasn't enough evidence to give them a shared meaning. The [employee field inventory](docs/EMPLOYEE_FIELD_COVERAGE.md) shows exactly where that boundary is.
+
+I generated my own deterministic fixtures, validated them against the selected source schemas, and tested the transformations and database behavior. I then used the organizer's demo APIs to check the mappings against live responses. The [requirement audit](docs/REQUIREMENTS.md) and [test results](docs/TESTING.md) summarize what I verified and what remains limited.
 
 ## Run locally
 
-Requires **Python 3.10+**. No API key, cloud account, database server, or third-party runtime package is needed.
+My local setup uses **Python 3.10+** and Python's built-in SQLite support. The steps below run the complete synthetic demo without an API key, cloud account, database server, or third-party runtime package.
 
 ```bash
 git clone https://github.com/tanikellapratik23/tada-normalization.git
@@ -30,7 +40,7 @@ python -m tada validate fixtures/synthetic.json
 python -m unittest discover -s tests -v
 ```
 
-Tests cover source-schema compatibility, canonical output constraints, exact decimals, field preservation, unknown enums, missing/null/zero distinctions, date errors, status-domain separation, deposit allocation semantics, paycheck versus YTD values, UKG units, relationship integrity, rollback, idempotency and HTTP behavior. GitHub Actions runs the same checks on Python 3.10, 3.12 and 3.13.
+The suite currently has **48 tests** covering source-schema compatibility, canonical output constraints, exact decimals, field preservation, unknown enums, missing/null/zero distinctions, date errors, status-domain separation, deposit allocation semantics, paycheck versus YTD values, UKG units, relationship integrity, rollback, idempotency and HTTP behavior. GitHub Actions runs the same checks on Python 3.10, 3.12 and 3.13.
 
 ## CLI
 
@@ -127,14 +137,39 @@ The read-only server binds to loopback, with no external assets:
 
 `company_id` filtering is also supported. `limit` is 1–1000; results are ordered by ID. The explorer displays full imported data and is intended for local review, not public deployment.
 
-## How it was built
+## What I tested against the live APIs
 
-1. Inspected the assignment's pinned provider contracts, partial lookup references and UKG cached endpoint pages.
-2. Defined canonical entities and conservative field/enum mappings separately from source preservation.
-3. Generated deterministic synthetic objects from selected schemas, then overlaid fictional business scenarios.
-4. Added schema validation, semantic edge-case tests and source-leaf coverage checks.
-5. Added transactional SQLite persistence, export and a small read-only explorer.
+I tested sign-in for all three providers and then made read-only requests for company, employee, deposit, deduction, payroll and paycheck data where the demo accounts exposed it. The live checker also sends returned sample records through the same adapters and checks that every source field is retained.
 
-AI assisted the implementation and documentation. No live demo records or credentials are included. The original reference pack, notices and PrismHR license remain in `contracts/`; source attribution and mapping evidence are in [docs/MAPPINGS.md](docs/MAPPINGS.md).
+The saved [live results](docs/LIVE_API_RESULTS.json) contain endpoint templates, statuses and counts only—no API key, tokens, employee records or account data. In the recorded run, I normalized **16 sampled records** with complete source-field preservation. Some endpoints returned empty lists. The documented isolved payroll-history route and UKG employee deduction-list route returned **404**. Those remain documented live-access gaps, not passing tests. The offline fixtures and tests still cover those record types.
 
-Read [ASSUMPTIONS.md](ASSUMPTIONS.md) for decisions, inconsistencies and limitations, especially employee extension coverage, tenant lookups, UKG units/totals, upstream extraction, and the absence of a live connector or provider write-back.
+To repeat the live smoke test, install the test dependencies above, set the organizer's key locally, and run:
+
+```bash
+# Enter the key without echoing it or saving it in shell history (Bash):
+read -r -s -p "Demo API key: " DEMO_SIGNIN_API_KEY; echo
+export DEMO_SIGNIN_API_KEY
+python -m tada.live_check --year 2026 --report local/live-check.json
+unset DEMO_SIGNIN_API_KEY
+```
+
+The command signs in afresh, uses bounded requests and caps retries for rate limits. It returns a nonzero exit status if an endpoint is unavailable or a check fails. An empty response is marked separately from successful record validation. It is a smoke test, not a full synchronization service; no live records are written to disk by this command.
+
+## AI Assistance
+
+I used **Claude Code** as my primary AI development assistant throughout this project to accelerate research, implementation, testing, and documentation.
+
+- **API Research:** Analyzed PrismHR, isolved, and UKG Ready documentation to identify field mappings and schema differences.
+- **Development:** Assisted with code implementation, debugging, refactoring, and identifying normalization edge cases.
+- **Testing:** Helped develop synthetic test scenarios and identify inconsistencies across provider data.
+- **Documentation:** Assisted in organizing technical explanations and documenting implementation decisions.
+
+**Engineering Ownership:** Claude Code served as a development assistant, not a source of truth. I maintained responsibility for architectural decisions, canonical schema design, mapping logic, and validating results against provider specifications and local tests.
+
+Codex also assisted with implementation, the final requirement audit, live API checks, regression testing, and repository publication.
+
+## Decisions and limits
+
+I documented the assumptions, source inconsistencies and limitations in [ASSUMPTIONS.md](ASSUMPTIONS.md). In particular, some tenant-defined codes and provider-specific fields remain explicit extensions; UKG's selected paycheck schema does not supply gross/net totals; and live API availability differs from the cached references. I haven't implemented the optional provider write-back extension.
+
+The original reference pack, notices and PrismHR license remain in `contracts/`. My mapping evidence is in [docs/MAPPINGS.md](docs/MAPPINGS.md).

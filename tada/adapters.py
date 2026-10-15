@@ -28,7 +28,7 @@ EMPLOYEE = {
         "profile.gender_code": "person.gender",
         "profile.pronouns": "client.preferredPronoun",
         "profile.language": "person.preferredLanguage",
-        "contact.personal_email": "contactInformation.emailAddress",
+        "contact.email": "contactInformation.emailAddress",
         "contact.work_email": "client.workEmail",
         "contact.home_phone": "contactInformation.homePhone",
         "contact.mobile_phone": "contactInformation.mobilePhone",
@@ -67,6 +67,29 @@ EMPLOYEE = {
         "compensation.pay_period_code": "compensation.payPeriod",
         "emergency_contacts": "person.emergencyContact",
         "skills_education": "skillsAndEducation",
+        "profile.ethnicity_code": "person.ethnicCode",
+        "profile.deceased": "person.deceased",
+        "profile.deceased_date": "person.deceasedDate",
+        "profile.citizenship_country": "person.hrpCitizenshipCountry",
+        "profile.veteran_code": "person.veteran",
+        "profile.disability_code": "person.handicapped",
+        "employment.contractor": "client.employee1099",
+        "employment.probation_date": "client.probationDate",
+        "employment.termination_explanation": "client.termExplanation",
+        "organization.work_group_code": "client.workGroupCode",
+        "organization.benefit_group_code": "client.benefitGroup",
+        "mailing_address.line1": "client.addressLine1",
+        "mailing_address.line2": "client.addressLine2",
+        "mailing_address.city": "client.city",
+        "mailing_address.region": "client.state",
+        "mailing_address.postal_code": "client.zip",
+        "compensation.basis_rate": "compensation.hourlyPayRate",
+        "compensation.basis_rate_period_code": "compensation.hourlyPayPeriod",
+        "compensation.last_pay_date": "compensation.lastPayDate",
+        "deposit_settings": "directDeposit",
+        "scheduled_deductions": "scheduledDeduction",
+        "health": "health",
+        "hsa": "hsa",
     },
     "isolved": {
         "profile.first_name": "nameAddress.firstName",
@@ -77,7 +100,12 @@ EMPLOYEE = {
         "profile.birth_date": "birthDate",
         "profile.gender_code": "gender",
         "profile.marital_status_code": "maritalStatus",
-        "contact.personal_email": "emailAddress",
+        "contact.email": "emailAddress",
+        "contact.personal_email": "personal.personalEmailAddress",
+        "contact.home_phone": "personal.homePhone",
+        "contact.mobile_phone": "personal.mobilePhone",
+        "contact.work_phone": "personal.officePhone",
+        "contact.fax": "personal.faxNumber",
         "address.line1": "nameAddress.address1",
         "address.line2": "nameAddress.address2",
         "address.city": "nameAddress.city",
@@ -113,6 +141,22 @@ EMPLOYEE = {
         "tax_settings": "taxes",
         "custom_fields": "miscFields",
         "custom_data_sets": "miscDataSets",
+        "profile.ethnicity_code": "ethnicOrigin",
+        "profile.disabled": "disabled",
+        "profile.disability_effective_date": "disabledEffectiveDate",
+        "profile.military_status_code": "militaryStatus",
+        "profile.protected_veteran": "protectedVeteran",
+        "profile.tobacco_use": "tobaccoUse",
+        "employment.pending": "isPending",
+        "employment.fte": "employmentCategoryFullTimeEquivalent",
+        "employment.category_effective_date": "employmentCategoryEffectiveDate",
+        "job.group": "jobGroup",
+        "job.seasonal": "jobIsSeasonal",
+        "job.union": "jobIsUnion",
+        "job.eeo_category_code": "jobEeoCategory",
+        "job.soc_code": "socCode",
+        "employment.workers_comp_code": "workersCompCode",
+        "tax_address_override": "overrideAddress",
     },
     "ukg-ready": {
         "profile.first_name": "first_name",
@@ -120,7 +164,7 @@ EMPLOYEE = {
         "profile.middle_name": "middle_name",
         "profile.preferred_name": "nickname",
         "profile.birth_date": "dates.birthday",
-        "contact.personal_email": "primary_email",
+        "contact.email": "primary_email",
         "contact.secondary_email": "secondary_email",
         "contact.home_phone": "phones.home_phone",
         "contact.mobile_phone": "phones.cell_phone",
@@ -144,6 +188,21 @@ EMPLOYEE = {
         "organization.ein": "ein",
         "custom_fields": "account_extra_fields",
         "custom_dates": "dates.custom_dates",
+        "profile.prefix": "salutation",
+        "profile.suffix": "suffix",
+        "profile.deceased_date": "dates.deceased",
+        "profile.timezone": "timezone",
+        "employment.retired_date": "dates.retired",
+        "employment.benefits_date": "dates.benefits",
+        "employment.peo_hire_date": "dates.peo_hired",
+        "mailing_address.line1": "mailing_address.address_line_1",
+        "mailing_address.line2": "mailing_address.address_line_2",
+        "mailing_address.city": "mailing_address.city",
+        "mailing_address.region": "mailing_address.state",
+        "mailing_address.postal_code": "mailing_address.zip",
+        "mailing_address.country": "mailing_address.country",
+        "contact.preferred_phone_code": "phones.preferred_phone",
+        "national_identifiers": "national_id_numbers",
     },
 }
 
@@ -153,6 +212,7 @@ def mapped(m, bindings):
         conv = iso_date if target.endswith("_date") else None
         if target.split(".")[-1] in (
             "hourly_rate",
+            "basis_rate",
             "period_salary",
             "annual_salary",
             "standard_hours",
@@ -187,6 +247,10 @@ def line_items(m, source, target, bindings):
                     "hours",
                     "rate",
                     "taxable_wages",
+                    "employee_contribution",
+                    "premium",
+                    "employee_catch_up",
+                    "eligible_wages",
                 ):
                     try:
                         value = decimal(value)
@@ -544,11 +608,15 @@ def deduction(m):
                 "rules.match_amount": "matchAmount",
             },
         )
-        m.field(
-            "amount",
-            "percentage" if m.raw.get("usePercent") is True else "amount",
-            decimal,
-        )
+        discriminator = m.raw.get("usePercent", False)
+        if discriminator is not True and discriminator is not False:
+            m.warn(
+                "invalid_discriminator",
+                "/usePercent",
+                "Cannot classify amount without a boolean usePercent; retained in extensions",
+            )
+        else:
+            m.field("amount", "percentage" if discriminator else "amount", decimal)
         m.enum(
             "deductionType",
             "type",
@@ -569,6 +637,8 @@ def deduction(m):
         )
         m.field("usePercent", "is_percentage")
     elif m.provider == "isolved":
+        if m.raw.get("payItemType") not in (None, "Deduction"):
+            raise ValueError("Only deduction pay items can be normalized as deductions")
         mapped(
             m,
             {
@@ -751,13 +821,49 @@ def payroll(m, entity):
             "employer_contributions",
             {"code": "code", "description": "description", "amount": "amount"},
         )
-        for source, target in [
-            ("otherEarningsDetail", "other_earnings"),
-            ("companyTax", "employer_taxes"),
-            ("otherDeduction", "other_deductions"),
-            ("benefit", "benefits"),
-        ]:
-            m.field(source, target)
+        line_items(
+            m,
+            "otherEarningsDetail",
+            "other_earnings",
+            {
+                "code": "otherEarnCode",
+                "description": "otherEarnsDesc",
+                "amount": "otherEarnAmount",
+            },
+        )
+        line_items(
+            m,
+            "companyTax",
+            "employer_taxes",
+            {
+                "code": "comTaxDeductCode",
+                "description": "comTaxDeductCodeDesc",
+                "amount": "comTaxAmount",
+                "taxable_wages": "comTaxableAmount",
+            },
+        )
+        line_items(
+            m,
+            "otherDeduction",
+            "other_deductions",
+            {
+                "code": "otherDeductCode",
+                "description": "otherDeductDescription",
+                "amount": "otherDeductAmount",
+            },
+        )
+        line_items(
+            m,
+            "benefit",
+            "benefits",
+            {
+                "code": "planId",
+                "amount": "empDeduct",
+                "employee_contribution": "empContrib",
+                "premium": "premiumAmt",
+                "coverage_period": "coveragePeriod",
+            },
+        )
         m.warn(
             "earnings_amount_ambiguous",
             "/earning",
@@ -779,6 +885,15 @@ def payroll(m, entity):
                         "taxable_wages": "checkTaxableWages",
                     }
                 )
+            if source == "benefits":
+                bindings = {
+                    "code": "benefitTitle",
+                    "description": "benefitDescription",
+                    "amount": "checkEmployeeDeduction",
+                    "employer_amount": "checkEmployerContribution",
+                    "employee_catch_up": "checkEmployeeCatchUp",
+                    "eligible_wages": "checkEligibleWages",
+                }
             line_items(m, source, source, bindings)
         m.warn(
             "accumulation_basis",

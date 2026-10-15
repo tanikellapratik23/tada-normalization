@@ -87,11 +87,23 @@ class Mapper:
         self.provider = provider
         self.context = context
         self.used = {}
+        employee_id = context.get("employee_id")
+        scoped_kinds = {
+            "direct_deposit",
+            "deduction",
+            "compensation",
+            "pay_info",
+            "demographics",
+        }
+        scoped_id = source_id
+        if kind in scoped_kinds:
+            # A deduction code or deposit slot is often unique only within an employee.
+            scoped_id = dumps([str(employee_id), str(source_id)], separators=(",", ":"))
         self.out = {
             "schema_version": "1.0",
             "entity": kind,
             "id": identity(
-                provider, context["tenant_id"], context["company_id"], kind, source_id
+                provider, context["tenant_id"], context["company_id"], kind, scoped_id
             ),
             "company_id": identity(
                 provider,
@@ -109,8 +121,11 @@ class Mapper:
             "data": {},
             "diagnostics": [],
         }
-        employee_id = context.get("employee_id")
-        if employee_id is not None:
+        if employee_id is not None and kind not in (
+            "company",
+            "employee",
+            "payroll_run",
+        ):
             self.out["employee_id"] = identity(
                 provider,
                 context["tenant_id"],

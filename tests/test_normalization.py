@@ -64,7 +64,7 @@ class NormalizationTests(unittest.TestCase):
         )
         self.assertEqual(r["data"]["compensation"]["hourly_rate"], "0")
         self.assertIs(r["data"]["employment"]["remote_worker"], False)
-        self.assertIsNone(r["data"]["contact"]["personal_email"])
+        self.assertIsNone(r["data"]["contact"]["email"])
         self.assertNotIn("profile", r["data"])
 
     def test_unknown_enum_retained(self):
