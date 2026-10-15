@@ -305,6 +305,23 @@ def normalize(provider, entity, raw, context):
         else "id"
     )
     source_id = record_id(raw, context, id_key)
+    if entity in (
+        "direct_deposit",
+        "deduction",
+        "compensation",
+        "pay_info",
+        "demographics",
+    ):
+        owner_path = "employeeId" if provider == "isolved" else "employee.account_id"
+        owner = get(raw, owner_path)
+        if (
+            owner is not MISSING
+            and owner is not None
+            and str(owner) != str(context["employee_id"])
+        ):
+            raise ValueError(
+                "Source employee identifier conflicts with context.employee_id"
+            )
     if entity == "company" and str(source_id) != str(context["company_id"]):
         raise ValueError("Company ID conflicts with context.company_id")
     m = Mapper(provider, entity, raw, context, source_id)

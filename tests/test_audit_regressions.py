@@ -27,6 +27,15 @@ class AuditRegressions(unittest.TestCase):
             b = normalize(provider, entity, {"id": 1}, dict(CTX, employee_id="102"))
             self.assertNotEqual(a["id"], b["id"], entity)
             self.assertEqual(a["source"]["record_id"], b["source"]["record_id"])
+        with self.assertRaises(ValueError):
+            normalize("isolved", "deduction", {"id": 1, "employeeId": 999}, CTX)
+        with self.assertRaises(ValueError):
+            normalize(
+                "ukg-ready",
+                "compensation",
+                {"id": 1, "employee": {"account_id": 999}},
+                CTX,
+            )
 
     def test_prism_deduction_code_is_scoped_to_employee(self):
         raw = {"deductionCode": "401K", "amount": 5, "usePercent": True}
